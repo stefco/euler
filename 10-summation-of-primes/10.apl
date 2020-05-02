@@ -45,11 +45,10 @@ psum_tail_recurse_messy←{
 ⍝ A (significantly) cleaned up version of the tail-recursive version above.
 ⍝ Also somewhat faster.
 psum_tail_recurse←{
-    ⍵<3:(0⌈⌊⍵-1)↑1⍴2
     +/3 ⍵ 1{
         c s p←⍺
         c>s:⍵
         n←c+2
         n s(p+⍵[p]≤n*.5)∇⍵,(~0∊(p↑⍵)|c)/c
-    }1⍴2
+    }(0⌈1⌊⌊⍵-1)↑1⍴2
 }
