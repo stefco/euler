@@ -20,3 +20,15 @@ pyth←{
         ⊃,/m(n-m)((⍴m)⍴⍵)             ⍝ a concatenated list of triples (a b c)
     }¨⍳⍵-2                            ⍝ 1≤(a b c)
 }
+
+⍝ A simplified version that immediately takes the product abc when a match is
+⍝ found. This disposes of the result array reshaping since the result is simply a
+⍝ list of products of matching triples.
+pyth_simple←{
+    ⊃,/⍵{
+        n←⍺-⍵
+        a←⍳⌊0.5×n
+        m←⍸(⍵*2)=((n-a)*2)+(a*2)
+        ⍵×m×n-m
+    }¨⍳⍵-2
+}
