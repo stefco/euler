@@ -29,7 +29,7 @@
 ⍝ Use the following command to extract the copy-pasted text from the Euler page
 ⍝ (on MacOS):
 ⍝
-⍝     pbpaste|tr -d \\n|sed 's/\(.\)\(.\)/\1,\2/g'|less
+⍝     pbpaste|tr -d \\n|sed 's/\(.\)\(.\)/\1,\2/g'>digits.csv
 ⍝
 ⍝ Then load into Dyalog workspace with:
 ⍝
@@ -39,8 +39,8 @@
 ⍝ shifted versions of the input digit array, reducing by multiplication along
 ⍝ the shift axis, sorting indices in descending order, and taking the largest
 ⍝ index:
-find_max_prod←{⊃⍒×/[1](1-⍺)↓[2](¯1+⍳⍺)⌽(⍺(⊃⍴⍵))⍴⍵}
+find_max_prod←{⊃⍒×/[1](1-⍺)↓[2](¯1+⍳⍺)⌽(⍺,⍴⍵)⍴⍵}
 
 ⍝ To simply find the value of the largest product, replace the sort and first
 ⍝ operators with a reduction by maximum:
-max_prod←{⌈/×/[1](1-⍺)↓[2](¯1+⍳⍺)⌽(⍺(⊃⍴⍵))⍴⍵}
+max_prod←{⌈/×/[1](1-⍺)↓[2](¯1+⍳⍺)⌽(⍺,⍴⍵)⍴⍵}
