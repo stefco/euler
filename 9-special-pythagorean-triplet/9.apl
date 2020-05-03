@@ -13,7 +13,7 @@
 ⍝ the provided argument. Gives one value for each triple found. Remove `×/` 
 ⍝ to get a matrix of the triples, with each triple found on its own row.
 pyth←{
-    ×/{((⍴⍵)[1]÷3)3⍴⍵}⊃,/⍵{           ⍝ reshape result array and take product
+    ×/{((⊃⍴⍵)÷3)3⍴⍵}⊃,/⍵{           ⍝ reshape result array and take product
         n←⍺-⍵                         ⍝ a+b
         a←⍳⌊0.5×n                     ⍝ check values of a where a≤b
         m←⍸(⍵*2)=((n-a)*2)+(a*2)      ⍝ matching values of a; recall b=n-a
@@ -28,7 +28,7 @@ pyth_simple←{
     ⊃,/⍵{
         n←⍺-⍵
         a←⍳⌊0.5×n
-        m←⍸(⍵*2)=((n-a)*2)+(a*2)
+        m←⍸(⍵*2)=((n-a)*2)+a*2
         ⍵×m×n-m
     }¨⍳⍵-2
 }
