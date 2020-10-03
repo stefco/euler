@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/s/dev/euler/002-even-fibonacci-numbers/main.c
+stdio.h
+-
+ctype.h
+-
+immintrin.h
+-
+math.h
+-
+
